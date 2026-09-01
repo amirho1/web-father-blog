@@ -27,10 +27,10 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
       <ScrollTopAndComment />
       <article>
         <div>
-          <div className="space-y-1 pb-10 text-center dark:border-gray-700">
+          <div className="space-y-1 pb-10 text-center">
             <div className="w-full">
               <Bleed>
-                <div className="relative aspect-2/1 w-full">
+                <div className="relative aspect-2/1 w-full rounded-b-[var(--radius)] overflow-hidden shadow-sm">
                   <Image src={displayImage} alt={title} fill className="object-cover" />
                 </div>
               </Bleed>
@@ -39,19 +39,19 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
               <PageTitle>{title}</PageTitle>
             </div>
           </div>
-          <div className="prose dark:prose-invert max-w-none py-4">{children}</div>
+          <div className="prose max-w-none py-4">{children}</div>
           {siteMetadata.comments && (
-            <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
+            <div className="pt-6 pb-6 text-center text-muted-foreground" id="comment">
               <Comments slug={slug} />
             </div>
           )}
           <footer>
-            <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
+            <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base border-t border-border mt-8">
               {prev && prev.path && (
                 <div className="pt-4 xl:pt-8">
                   <Link
                     href={`/${prev.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                    className="text-accent hover:text-accent/80 transition-colors"
                     aria-label={`Previous post: ${prev.title}`}
                   >
                     &larr; {prev.title}
@@ -62,7 +62,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 <div className="pt-4 xl:pt-8">
                   <Link
                     href={`/${next.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                    className="text-accent hover:text-accent/80 transition-colors"
                     aria-label={`Next post: ${next.title}`}
                   >
                     {next.title} &rarr;

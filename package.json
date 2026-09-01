@@ -3,10 +3,10 @@
   "version": "2.4.0",
   "private": true,
   "scripts": {
-    "start": "next dev",
-    "dev": "cross-env INIT_CWD=$PWD next dev",
-    "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
-    "serve": "next start",
+    "start": "next start -p 3000 -H 0.0.0.0",
+    "dev": "cross-env INIT_CWD=/app/applet next dev -p 3000 -H 0.0.0.0",
+    "build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
+    "serve": "next start -p 3000 -H 0.0.0.0",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky"
@@ -68,11 +68,10 @@
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "yarn eslint --fix"
+      "npm run eslint --fix"
     ],
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
-      "yarn prettier --write"
+      "npm run prettier --write"
     ]
-  },
-  "packageManager": "yarn@3.6.1"
+  }
 }
