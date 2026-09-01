@@ -62,16 +62,16 @@
     "globals": "^17.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "npm run eslint --fix"
+      "yarn eslint --fix"
     ],
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
-      "npm run prettier --write"
+      "yarn prettier --write"
     ]
   }
 }
