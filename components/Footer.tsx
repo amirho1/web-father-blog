@@ -4,17 +4,17 @@ import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-border pb-12 pt-8">
+    <footer className="border-border mt-24 border-t pt-8 pb-12">
       <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-        <div className="flex flex-col items-center md:items-start gap-2">
-           <Link href="/" className="text-xl font-bold tracking-tight text-primary">
-              {siteMetadata.title}
-           </Link>
-           <div className="flex space-x-2 text-sm text-muted-foreground">
-             <div>{siteMetadata.author}</div>
-             <div>{` • `}</div>
-             <div>{`© ${new Date().getFullYear()}`}</div>
-           </div>
+        <div className="flex flex-col items-center gap-2 md:items-start">
+          <Link href="/" className="text-primary text-xl font-bold tracking-tight">
+            {siteMetadata.title}
+          </Link>
+          <div className="text-muted-foreground flex space-x-2 text-sm">
+            <div>{siteMetadata.author}</div>
+            <div>{` • `}</div>
+            <div>{`© ${new Date().getFullYear()}`}</div>
+          </div>
         </div>
 
         <div className="flex space-x-4">

@@ -37,13 +37,13 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
     <SectionContainer>
       <ScrollTopAndComment />
       <article>
-        <div className="xl:divide-y xl:divide-border">
+        <div className="xl:divide-border xl:divide-y">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
                 <div>
                   <dt className="sr-only">Published on</dt>
-                  <dd className="text-base leading-6 font-medium text-muted-foreground">
+                  <dd className="text-muted-foreground text-base leading-6 font-medium">
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
@@ -55,8 +55,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
             </div>
           </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-border pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-            <dl className="pt-6 pb-10 xl:border-b xl:border-border xl:pt-11">
+          <div className="divide-border grid-rows-[auto_1fr] divide-y pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
+            <dl className="xl:border-border pt-6 pb-10 xl:border-b xl:pt-11">
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
@@ -93,20 +93,23 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 </ul>
               </dd>
             </dl>
-            <div className="divide-y divide-border xl:col-span-3 xl:row-span-2 xl:pb-0">
+            <div className="divide-border divide-y xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8">{children}</div>
-              <div className="pt-6 pb-6 text-sm text-muted-foreground">
-                <Link href={discussUrl(path)} rel="nofollow" className="hover:text-foreground transition-colors">
+              <div className="text-muted-foreground pt-6 pb-6 text-sm">
+                <Link
+                  href={discussUrl(path)}
+                  rel="nofollow"
+                  className="hover:text-foreground transition-colors"
+                >
                   Discuss on Twitter
                 </Link>
                 {` • `}
-                <Link href={editUrl(filePath)} className="hover:text-foreground transition-colors">View on GitHub</Link>
+                <Link href={editUrl(filePath)} className="hover:text-foreground transition-colors">
+                  View on GitHub
+                </Link>
               </div>
               {siteMetadata.comments && (
-                <div
-                  className="pt-6 pb-6 text-center text-muted-foreground"
-                  id="comment"
-                >
+                <div className="text-muted-foreground pt-6 pb-6 text-center" id="comment">
                   <Comments slug={slug} />
                 </div>
               )}
@@ -115,9 +118,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="divide-border text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {tags && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-muted-foreground uppercase">
-                      Tags
-                    </h2>
+                    <h2 className="text-muted-foreground text-xs tracking-wide uppercase">Tags</h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />
@@ -129,7 +130,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="text-xs tracking-wide text-muted-foreground uppercase">
+                        <h2 className="text-muted-foreground text-xs tracking-wide uppercase">
                           Previous Article
                         </h2>
                         <div className="text-accent hover:text-accent/80 transition-colors">
@@ -139,7 +140,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="text-xs tracking-wide text-muted-foreground uppercase">
+                        <h2 className="text-muted-foreground text-xs tracking-wide uppercase">
                           Next Article
                         </h2>
                         <div className="text-accent hover:text-accent/80 transition-colors">

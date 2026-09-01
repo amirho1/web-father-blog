@@ -14,7 +14,7 @@ const Header = () => {
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
-          <div className="hidden h-6 text-2xl font-bold tracking-tight text-primary sm:block">
+          <div className="text-primary hidden h-6 text-2xl font-bold tracking-tight sm:block">
             {siteMetadata.headerTitle}
           </div>
         </div>
@@ -27,7 +27,7 @@ const Header = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="m-1 font-medium text-foreground hover:text-accent transition-colors"
+                className="text-foreground hover:text-accent m-1 font-medium transition-colors"
               >
                 {link.title}
               </Link>
@@ -36,7 +36,7 @@ const Header = () => {
         <SearchButton />
         <Link
           href="/newsletter"
-          className="hidden rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 sm:block transition-colors"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 hidden rounded-full px-5 py-2 text-sm font-medium transition-colors sm:block"
         >
           اشتراک
         </Link>

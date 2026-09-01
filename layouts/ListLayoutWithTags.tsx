@@ -82,20 +82,20 @@ export default function ListLayoutWithTags({
   return (
     <>
       <div>
-        <div className="pt-6 pb-6 border-b border-border mb-8">
-          <h1 className="text-3xl leading-9 font-bold tracking-tight text-primary sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <div className="border-border mb-8 border-b pt-6 pb-6">
+          <h1 className="text-primary text-3xl leading-9 font-bold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {title}
           </h1>
         </div>
         <div className="flex sm:space-x-12">
-          <div className="hidden h-full max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto rounded-[var(--radius)] bg-card border border-border shadow-sm pt-5 sm:flex">
+          <div className="bg-card border-border hidden h-full max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto rounded-[var(--radius)] border pt-5 shadow-sm sm:flex">
             <div className="px-6 py-4">
               {pathname.startsWith('/blog') ? (
-                <h3 className="text-accent font-bold uppercase tracking-wide">تمام پست‌ها</h3>
+                <h3 className="text-accent font-bold tracking-wide uppercase">تمام پست‌ها</h3>
               ) : (
                 <Link
                   href={`/blog`}
-                  className="hover:text-accent font-bold text-foreground uppercase tracking-wide transition-colors"
+                  className="hover:text-accent text-foreground font-bold tracking-wide uppercase transition-colors"
                 >
                   All Posts
                 </Link>
@@ -105,13 +105,13 @@ export default function ListLayoutWithTags({
                   return (
                     <li key={t} className="my-3">
                       {decodeURI(pathname.split('/tags/')[1]) === slug(t) ? (
-                        <h3 className="text-accent inline px-3 py-2 text-sm font-bold uppercase tracking-wider bg-accent/10 rounded-md">
+                        <h3 className="text-accent bg-accent/10 inline rounded-md px-3 py-2 text-sm font-bold tracking-wider uppercase">
                           {`${t} (${tagCounts[t]})`}
                         </h3>
                       ) : (
                         <Link
                           href={`/tags/${slug(t)}`}
-                          className="hover:text-accent hover:bg-accent/5 px-3 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider transition-colors rounded-md block"
+                          className="hover:text-accent hover:bg-accent/5 text-muted-foreground block rounded-md px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors"
                           aria-label={`مشاهده پست‌های با برچسب ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
@@ -124,7 +124,7 @@ export default function ListLayoutWithTags({
             </div>
           </div>
           <div className="w-full">
-            <ul className="divide-y divide-border">
+            <ul className="divide-border divide-y">
               {displayPosts.map((post) => {
                 const { path, date, title, summary, tags } = post
                 return (
@@ -132,7 +132,7 @@ export default function ListLayoutWithTags({
                     <article className="flex flex-col space-y-4">
                       <dl>
                         <dt className="sr-only">منتشر شده در</dt>
-                        <dd className="text-sm font-medium text-muted-foreground">
+                        <dd className="text-muted-foreground text-sm font-medium">
                           <time dateTime={date} suppressHydrationWarning>
                             {formatDate(date, siteMetadata.locale)}
                           </time>
@@ -141,7 +141,10 @@ export default function ListLayoutWithTags({
                       <div className="space-y-3">
                         <div className="space-y-3">
                           <h2 className="text-2xl font-bold tracking-tight">
-                            <Link href={`/${path}`} className="text-primary hover:text-accent transition-colors">
+                            <Link
+                              href={`/${path}`}
+                              className="text-primary hover:text-accent transition-colors"
+                            >
                               {title}
                             </Link>
                           </h2>
@@ -151,9 +154,7 @@ export default function ListLayoutWithTags({
                             ))}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-muted-foreground">
-                          {summary}
-                        </div>
+                        <div className="prose text-muted-foreground max-w-none">{summary}</div>
                       </div>
                     </article>
                   </li>

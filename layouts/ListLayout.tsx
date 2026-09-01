@@ -83,9 +83,9 @@ export default function ListLayout({
 
   return (
     <>
-      <div className="divide-y divide-border">
+      <div className="divide-border divide-y">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-bold tracking-tight text-primary sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          <h1 className="text-primary text-3xl leading-9 font-bold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {title}
           </h1>
           <div className="relative max-w-lg">
@@ -96,11 +96,11 @@ export default function ListLayout({
                 type="text"
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
-                className="focus:border-ring focus:ring-ring block w-full rounded-md border border-border bg-input px-4 py-2 text-foreground"
+                className="focus:border-ring focus:ring-ring border-border bg-input text-foreground block w-full rounded-md border px-4 py-2"
               />
             </label>
             <svg
-              className="absolute top-3 right-3 h-5 w-5 text-muted-foreground"
+              className="text-muted-foreground absolute top-3 right-3 h-5 w-5"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -115,8 +115,10 @@ export default function ListLayout({
             </svg>
           </div>
         </div>
-        <ul className="divide-y divide-border">
-          {!filteredBlogPosts.length && <li className="py-8 text-muted-foreground text-center">No posts found.</li>}
+        <ul className="divide-border divide-y">
+          {!filteredBlogPosts.length && (
+            <li className="text-muted-foreground py-8 text-center">No posts found.</li>
+          )}
           {displayPosts.map((post) => {
             const { path, date, title, summary, tags } = post
             return (
@@ -124,14 +126,17 @@ export default function ListLayout({
                 <article className="space-y-4 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-sm font-medium text-muted-foreground">
+                    <dd className="text-muted-foreground text-sm font-medium">
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
                     <div className="space-y-3">
                       <h3 className="text-2xl font-bold tracking-tight">
-                        <Link href={`/${path}`} className="text-primary hover:text-accent transition-colors">
+                        <Link
+                          href={`/${path}`}
+                          className="text-primary hover:text-accent transition-colors"
+                        >
                           {title}
                         </Link>
                       </h3>
@@ -141,9 +146,7 @@ export default function ListLayout({
                         ))}
                       </div>
                     </div>
-                    <div className="prose max-w-none text-muted-foreground">
-                      {summary}
-                    </div>
+                    <div className="prose text-muted-foreground max-w-none">{summary}</div>
                   </div>
                 </article>
               </li>

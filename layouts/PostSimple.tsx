@@ -25,11 +25,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
       <article>
         <div>
           <header>
-            <div className="space-y-1 border-b border-border pb-10 text-center">
+            <div className="border-border space-y-1 border-b pb-10 text-center">
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
-                  <dd className="text-base leading-6 font-medium text-muted-foreground">
+                  <dd className="text-muted-foreground text-base leading-6 font-medium">
                     <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                   </dd>
                 </div>
@@ -39,12 +39,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               </div>
             </div>
           </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-border pb-8 xl:divide-y-0">
-            <div className="divide-y divide-border xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div className="divide-border grid-rows-[auto_1fr] divide-y pb-8 xl:divide-y-0">
+            <div className="divide-border divide-y xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8">{children}</div>
             </div>
             {siteMetadata.comments && (
-              <div className="pt-6 pb-6 text-center text-muted-foreground" id="comment">
+              <div className="text-muted-foreground pt-6 pb-6 text-center" id="comment">
                 <Comments slug={slug} />
               </div>
             )}
