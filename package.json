@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "next start -p 3000 -H 0.0.0.0",
-    "dev": "cross-env INIT_CWD=/app/applet next dev -p 3000 -H 0.0.0.0",
+    "dev": "cross-env INIT_CWD=/app/applet next dev ",
     "build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start -p 3000 -H 0.0.0.0",
     "analyze": "cross-env ANALYZE=true next build",
