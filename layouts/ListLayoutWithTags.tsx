@@ -49,7 +49,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
           </Link>
         )}
         <span>
-          {currentPage} of {totalPages}
+          {currentPage} از {totalPages}
         </span>
         {!nextPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
@@ -91,7 +91,7 @@ export default function ListLayoutWithTags({
           <div className="hidden h-full max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto rounded-[var(--radius)] bg-card border border-border shadow-sm pt-5 sm:flex">
             <div className="px-6 py-4">
               {pathname.startsWith('/blog') ? (
-                <h3 className="text-accent font-bold uppercase tracking-wide">All Posts</h3>
+                <h3 className="text-accent font-bold uppercase tracking-wide">تمام پست‌ها</h3>
               ) : (
                 <Link
                   href={`/blog`}
@@ -112,7 +112,7 @@ export default function ListLayoutWithTags({
                         <Link
                           href={`/tags/${slug(t)}`}
                           className="hover:text-accent hover:bg-accent/5 px-3 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider transition-colors rounded-md block"
-                          aria-label={`View posts tagged ${t}`}
+                          aria-label={`مشاهده پست‌های با برچسب ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
                         </Link>
@@ -131,7 +131,7 @@ export default function ListLayoutWithTags({
                   <li key={path} className="py-8">
                     <article className="flex flex-col space-y-4">
                       <dl>
-                        <dt className="sr-only">Published on</dt>
+                        <dt className="sr-only">منتشر شده در</dt>
                         <dd className="text-sm font-medium text-muted-foreground">
                           <time dateTime={date} suppressHydrationWarning>
                             {formatDate(date, siteMetadata.locale)}

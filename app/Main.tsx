@@ -36,7 +36,7 @@ export default function Home({ posts }) {
               </p>
               <div className="flex items-center space-x-4">
                 <span className="text-sm font-medium text-foreground">
-                  By {heroPost.authors?.[0] || siteMetadata.author}
+                  توسط {heroPost.authors?.[0] || siteMetadata.author}
                 </span>
                 <span className="text-muted-foreground">•</span>
                 <time className="text-sm text-muted-foreground" dateTime={heroPost.date}>
@@ -63,20 +63,20 @@ export default function Home({ posts }) {
       {/* Latest Posts Grid */}
       <section className="space-y-8">
         <div className="flex items-center justify-between border-b border-border pb-4">
-          <h2 className="text-2xl font-bold tracking-tight text-primary">Recent Articles</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-primary">مقاله‌های اخیر</h2>
           {posts.length > MAX_DISPLAY && (
             <Link
               href="/blog"
               className="text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
               aria-label="All posts"
             >
-              View all &rarr;
+              &larr; مشاهده همه
             </Link>
           )}
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {!gridPosts.length && 'No posts found.'}
+          {!gridPosts.length && 'هیچ پستی یافت نشد.'}
           {gridPosts.map((post) => {
             const { slug, date, title, summary, tags, authors } = post
             return (
@@ -130,8 +130,8 @@ export default function Home({ posts }) {
       {/* Newsletter Section */}
       {siteMetadata.newsletter?.provider && (
         <section className="bg-card border border-border shadow-sm rounded-[var(--radius)] p-8 my-12 flex flex-col items-center justify-center text-center">
-          <h3 className="text-2xl font-bold tracking-tight text-primary mb-2">Subscribe to our newsletter</h3>
-          <p className="text-muted-foreground mb-6 max-w-lg">Get the latest insights, tutorials, and tech news delivered directly to your inbox every week.</p>
+          <h3 className="text-2xl font-bold tracking-tight text-primary mb-2">اشتراک در خبرنامه ما</h3>
+          <p className="text-muted-foreground mb-6 max-w-lg">جدیدترین بینش‌ها، آموزش‌ها و اخبار تکنولوژی را هر هفته مستقیماً در صندوق ورودی خود دریافت کنید.</p>
           <div className="w-full max-w-md">
             <NewsletterForm />
           </div>
