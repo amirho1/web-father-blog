@@ -4,9 +4,9 @@
     "memory": "8gb"
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "pnpm",
+  "updateContentCommand": "yarn",
   "postCreateCommand": "",
-  "postAttachCommand": "pnpm dev",
+  "postAttachCommand": "yarn dev",
   "customizations": {
     "codespaces": {
       "openFiles": ["data/blog/code-sample.mdx"]
